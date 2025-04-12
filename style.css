@@ -1,3 +1,30 @@
 body {
   text-align: center;
+  color: #3c3c3b;
+}
+
+form {
+  margin: auto;
+  padding: 10px;
+  padding-top: 25px;
+  width: 300px;
+  background-color: #89c82e;
+  border: 3px solid #3c3c3b;
+  border-radius: 20px;
+}
+
+form input {
+  margin: 5px;
+  border-style: none;
+  padding: 4px;
+  width: 62%;
+}
+
+#submit {
+  width: auto;
+  background-color: #e70064;
+  border: 1px solid #3c3c3b;
+  border-radius: 4px;
+  color: #3c3c3b;
+  padding: 3px 10px 3px 10px;
 }
