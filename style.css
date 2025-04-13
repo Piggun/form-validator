@@ -1,12 +1,14 @@
 body {
   text-align: center;
   color: #3c3c3b;
+  font-family: "Calibri", sans-serif;
+  font-size: 11px;
 }
 
 form {
   margin: auto;
-  padding: 10px;
   padding-top: 25px;
+  padding-bottom: 10px;
   width: 300px;
   background-color: #89c82e;
   border: 3px solid #3c3c3b;
@@ -14,10 +16,26 @@ form {
 }
 
 form input {
-  margin: 5px;
   border-style: none;
   padding: 4px;
   width: 62%;
+}
+
+ul li {
+  padding: 6px 0px 6px 0px;
+}
+
+ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  display: inline-block;
+  width: 40px;
+  text-align: start;
 }
 
 #submit {
