@@ -46,3 +46,12 @@ label {
   color: #3c3c3b;
   padding: 3px 10px 3px 10px;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+#nameError {
+  color: red;
+  font-size: 14px;
+}

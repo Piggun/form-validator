@@ -2,6 +2,7 @@ let nameInput = document.getElementById("name");
 let emailInput = document.getElementById("email");
 let cardInput = document.getElementById("card");
 let detailsForm = document.getElementById("detailsForm");
+const nameError = document.getElementById("nameError");
 
 // detailsForm.addEventListener("submit", (event) => {
 //   if (!isConditionMet()) {
@@ -36,6 +37,8 @@ detailsForm.addEventListener("submit", (event) => {
     event.preventDefault();
   } else {
     nameInput.style.border = "white";
+    nameError.classList.add("hidden");
+
     detailsForm.action =
       "mailto:challenge@dn-uk.com?subject=User Details&body=" +
       nameInput.value +
@@ -59,6 +62,8 @@ function isNameValid() {
   // if name does not match the regex
   if (!nameInput.value.match(nameRegex)) {
     nameInput.style.border = "2px solid red";
+    // display name field error
+    nameError.classList.remove("hidden");
     return false;
   }
   return true;
