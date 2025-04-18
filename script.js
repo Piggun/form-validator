@@ -9,14 +9,15 @@ detailsForm.addEventListener("submit", (event) => {
   if (!areConditionsMet()) {
     event.preventDefault();
   } else {
-    // nameError.classList.add("hidden");
-
     detailsForm.action =
       "mailto:challenge@dn-uk.com?subject=User Details&body=" +
+      "Name: " +
       nameInput.value +
       encodeURIComponent("\r\n") +
+      "Email: " +
       emailInput.value +
       encodeURIComponent("\r\n") +
+      "Card Number: " +
       cardInput.value;
   }
 });
@@ -25,7 +26,7 @@ function areConditionsMet() {
   if (!isNameValid()) {
     return false;
   }
-  if (!isEmailValid) {
+  if (!isEmailValid()) {
     return false;
   }
   return true;
