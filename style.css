@@ -51,7 +51,12 @@ label {
   visibility: hidden;
 }
 
-#nameError {
+.error {
   color: red;
   font-size: 14px;
+  line-height: 20px;
+}
+
+.red-border {
+  border: 2px solid red;
 }
