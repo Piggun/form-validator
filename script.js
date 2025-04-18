@@ -4,8 +4,9 @@ let cardInput = document.getElementById("card");
 let detailsForm = document.getElementById("detailsForm");
 
 detailsForm.addEventListener("submit", (event) => {
-  if (true) {
-    console.log(nameInput.value);
+  if (!isConditionMet()) {
+    event.preventDefault();
+  } else {
     detailsForm.action =
       "mailto:challenge@dn-uk.com?subject=User Details&body=" +
       nameInput.value +
@@ -13,7 +14,15 @@ detailsForm.addEventListener("submit", (event) => {
       emailInput.value +
       encodeURIComponent("\r\n") +
       cardInput.value;
-  } else {
-    event.preventDefault();
   }
 });
+
+function isConditionMet() {
+  const nameRegex = /^[A-Z][a-z]+ [A-Z][a-z]+(-[A-Z][a-z]+)?$/;
+
+  // if name does not match the regex
+  if (!nameInput.value.match(nameRegex)) {
+    return false;
+  }
+  return true;
+}
