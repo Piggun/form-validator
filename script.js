@@ -7,6 +7,7 @@ const emailError = document.getElementById("emailError");
 
 detailsForm.addEventListener("submit", (event) => {
   if (!areConditionsMet()) {
+    // stop the form from being submitted
     event.preventDefault();
   } else {
     detailsForm.action =
@@ -51,7 +52,9 @@ function isNameValid() {
 
 function isEmailValid() {
   const emailRegex = /\.com$/;
-  if (!emailInput.value.match(emailRegex)) {
+
+  // if email does not match the regex or if it does not pass the 'html tag' validity check
+  if (!emailInput.value.match(emailRegex) || !emailInput.checkValidity()) {
     emailInput.classList.add("red-border");
     emailError.classList.remove("hidden");
     return false;
@@ -61,31 +64,3 @@ function isEmailValid() {
   }
   return true;
 }
-
-// <------------------------------------------------------------------->
-
-// detailsForm.addEventListener("submit", (event) => {
-//   if (!isConditionMet()) {
-//     nameInput.style.border = "2px solid red";
-//     event.preventDefault();
-//   } else {
-//     nameInput.style.border = "white";
-//     detailsForm.action =
-//       "mailto:challenge@dn-uk.com?subject=User Details&body=" +
-//       nameInput.value +
-//       encodeURIComponent("\r\n") +
-//       emailInput.value +
-//       encodeURIComponent("\r\n") +
-//       cardInput.value;
-//   }
-// });
-
-// function isConditionMet() {
-//   const nameRegex = /^[A-Z][a-z]+ [A-Z][a-z]+(-[A-Z][a-z]+)?$/;
-
-//   // if name does not match the regex
-//   if (!nameInput.value.match(nameRegex)) {
-//     return false;
-//   }
-//   return true;
-// }
