@@ -34,6 +34,7 @@
             type="text"
             id="card"
             placeholder="Enter a Proxy Credit Card Number."
+            onblur="isCardValid()"
           />
         </li>
       </ul>
@@ -42,7 +43,8 @@
     </form>
     <p>
       <span id="nameError" class="error hidden">Name field error</span><br />
-      <span id="emailError" class="error hidden">Email field error</span>
+      <span id="emailError" class="error hidden">Email field error</span><br />
+      <span id="cardError" class="error hidden">Credit Card field error</span>
     </p>
     <script src="script.js"></script>
   </body>

@@ -4,8 +4,10 @@ let cardInput = document.getElementById("card");
 let detailsForm = document.getElementById("detailsForm");
 const nameError = document.getElementById("nameError");
 const emailError = document.getElementById("emailError");
+const cardError = document.getElementById("cardError");
 
 detailsForm.addEventListener("submit", (event) => {
+  // if not all the conditions are met
   if (!areConditionsMet()) {
     // stop the form from being submitted
     event.preventDefault();
@@ -24,12 +26,10 @@ detailsForm.addEventListener("submit", (event) => {
 });
 
 function areConditionsMet() {
-  if (!isNameValid()) {
-    return false;
-  }
-  if (!isEmailValid()) {
-    return false;
-  }
+  if (!isNameValid()) return false;
+  if (!isEmailValid()) return false;
+  if (!isCardValid()) return false;
+
   return true;
 }
 
@@ -61,6 +61,35 @@ function isEmailValid() {
   } else {
     emailInput.classList.remove("red-border");
     emailError.classList.add("hidden");
+  }
+  return true;
+}
+
+function isCardValid() {
+  let sumOfNums;
+  // if card input is not empty (prevents from calling reduce function on an empty array)
+  if (cardInput.value.length >= 1) {
+    const arrayOfNums = cardInput.value.split("");
+    sumOfNums = arrayOfNums.map(Number).reduce((a, b) => a + b);
+  }
+
+  // if card input is not between 11 and 19 characters
+  if (cardInput.value.length <= 10 || cardInput.value.length >= 20) {
+    cardInput.classList.add("red-border");
+    cardError.classList.remove("hidden");
+    return false;
+  } // if card input is not a number
+  else if (isNaN(cardInput.value)) {
+    cardInput.classList.add("red-border");
+    cardError.classList.remove("hidden");
+    return false;
+  } else if (sumOfNums === 0) {
+    cardInput.classList.add("red-border");
+    cardError.classList.remove("hidden");
+    return false;
+  } else {
+    cardInput.classList.remove("red-border");
+    cardError.classList.add("hidden");
   }
   return true;
 }
