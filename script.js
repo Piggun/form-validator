@@ -104,19 +104,22 @@ function checkCard(cardNum) {
   const arrayOfNums = cardNum.split("");
   let isSecond = false;
   let sumOfProcessedNums = 0;
+  // loop through the array of numbers
   for (let i = arrayOfNums.length - 1; i >= 0; i--) {
     let doubledNum = arrayOfNums[i];
     if (isSecond) {
       doubledNum *= 2;
     }
-
+    // if number is made of 2 digits
     if (doubledNum.toString().length == 2) {
+      // add up the sum of the 2 digits to sumOfProcessedNums
       sumOfProcessedNums +=
         Number(doubledNum.toString()[0]) + Number(doubledNum.toString()[1]);
     } else {
+      // add up the num to sumOfProcessedNums
       sumOfProcessedNums += Number(doubledNum);
     }
-
+    // invert the value on every loop iteration
     isSecond = !isSecond;
   }
   return sumOfProcessedNums % 10 === 0;
