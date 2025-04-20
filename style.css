@@ -10,8 +10,8 @@ form {
   padding-top: 25px;
   padding-bottom: 10px;
   width: 300px;
-  background-color: #89c82e;
-  border: 3px solid #3c3c3b;
+  background-color: rgb(137, 200, 46);
+  border: 3px solid rgb(60, 60, 59);
   border-radius: 20px;
 }
 
@@ -40,10 +40,10 @@ label {
 
 #submit {
   width: auto;
-  background-color: #e70064;
-  border: 1px solid #3c3c3b;
+  background-color: rgb(231, 0, 100);
+  border: 1px solid rgb(60, 60, 59);
   border-radius: 4px;
-  color: #3c3c3b;
+  color: rgb(60, 60, 59);
   padding: 3px 10px 3px 10px;
 }
 
