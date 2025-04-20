@@ -83,7 +83,13 @@ function isCardValid() {
     cardInput.classList.add("red-border");
     cardError.classList.remove("hidden");
     return false;
-  } else if (sumOfNums === 0) {
+  } // if the sum of digits is equal to 0
+  else if (sumOfNums === 0) {
+    cardInput.classList.add("red-border");
+    cardError.classList.remove("hidden");
+    return false;
+  } // if the card does not pass validation check
+  else if (!checkCard(cardInput.value)) {
     cardInput.classList.add("red-border");
     cardError.classList.remove("hidden");
     return false;
@@ -92,4 +98,26 @@ function isCardValid() {
     cardError.classList.add("hidden");
   }
   return true;
+}
+
+function checkCard(cardNum) {
+  const arrayOfNums = cardNum.split("");
+  let isSecond = false;
+  let sumOfProcessedNums = 0;
+  for (let i = arrayOfNums.length - 1; i >= 0; i--) {
+    let doubledNum = arrayOfNums[i];
+    if (isSecond) {
+      doubledNum *= 2;
+    }
+
+    if (doubledNum.toString().length == 2) {
+      sumOfProcessedNums +=
+        Number(doubledNum.toString()[0]) + Number(doubledNum.toString()[1]);
+    } else {
+      sumOfProcessedNums += Number(doubledNum);
+    }
+
+    isSecond = !isSecond;
+  }
+  return sumOfProcessedNums % 10 === 0;
 }
