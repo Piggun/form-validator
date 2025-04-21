@@ -12,6 +12,7 @@ detailsForm.addEventListener("submit", (event) => {
     // stop the form from being submitted
     event.preventDefault();
   } else {
+    // add mailto action to detailsForm, allowing the default desktop email client to be opened when form is submitted
     detailsForm.action =
       "mailto:challenge@dn-uk.com?subject=User Details&body=" +
       "Name: " +
@@ -35,7 +36,6 @@ function areConditionsMet() {
 
 function isNameValid() {
   const nameRegex = /^[A-Z][a-z]+ [A-Z][a-z]+(-[A-Z][a-z]+)?$/;
-
   // if name does not match the regex
   if (!nameInput.value.match(nameRegex)) {
     // highlight error field and display name field error
@@ -52,7 +52,6 @@ function isNameValid() {
 
 function isEmailValid() {
   const emailRegex = /\.com$/;
-
   // if email does not match the regex or if it does not pass the 'html tag' validity check
   if (!emailInput.value.match(emailRegex) || !emailInput.checkValidity()) {
     emailInput.classList.add("red-border");
@@ -116,7 +115,7 @@ function checkCard(cardNum) {
       sumOfProcessedNums +=
         Number(doubledNum.toString()[0]) + Number(doubledNum.toString()[1]);
     } else {
-      // add up the num to sumOfProcessedNums
+      // add up the number to sumOfProcessedNums
       sumOfProcessedNums += Number(doubledNum);
     }
     // invert the value on every loop iteration
